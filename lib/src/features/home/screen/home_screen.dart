@@ -331,15 +331,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: Image(
                   image: AssetImage(e.image),
                 ),
-                title: Text(e.name),
-                subtitle: Text(e.subname),
+                title: Text(
+                  e.name,
+                  style: context.textTheme.titleMedium?.copyWith(
+                    color: context.colors.primary,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                subtitle: Text(
+                  e.subname,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    color: context.colors.onSecondaryContainer,
+                  ),
+                ),
                 trailing: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(e.price),
-                    Text(e.change),
+                    Text(
+                      e.price,
+                      style: context.textTheme.titleMedium?.copyWith(
+                        color: context.colors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      e.change,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        color: e.change.startsWith('-')
+                            ? context.colors.onError
+                            : context.colors.error,
+                      ),
+                    ),
                   ],
                 ),
-              )
+              ),
           ],
         ),
       ),
